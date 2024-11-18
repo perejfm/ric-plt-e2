@@ -39,7 +39,7 @@ RUN  git clone https://gerrit.o-ran-sc.org/r/ric-plt/lib/rmr \
      && cd rmr/; mkdir build; cd build; /opt/bin/cmake -DDEV_PKG=1 ..; make install \
      && cd /opt/e2/ && /opt/bin/cmake . && make
 
-FROM ubuntu:16.04
+FROM ubuntu:xenial-20210114
 COPY --from=ubuntu /opt/e2/setUpTest /opt/e2/setUpTest
 COPY --from=ubuntu /opt/e2/RIC-E2-TERMINATION/TEST/T1/dockerRouter.txt /opt/e2/dockerRouter.txt
 COPY --from=ubuntu /usr/local/lib/librmr_nng.so.1 /usr/local/lib/librmr_nng.so.1
